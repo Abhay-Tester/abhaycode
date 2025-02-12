@@ -11,7 +11,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		dryRun = false,                        // for run or not run
 		snippets = SnippetType.CAMELCASE, // for remove the underscore
 		monochrome = true,
-		glue = "steps"
+		glue = "steps",
+		plugin= {"pretty", "html:test-output/todo.html"} //to generate different types of reporting
+
 		)
 
 public class runner extends AbstractTestNGCucumberTests {

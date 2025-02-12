@@ -35,7 +35,7 @@ public class loginsteps1 {
     @Given("User navigation to the todo management website")
     public void userNavigationToTheTodoManagementWebsite() {
     
-        System.setProperty("webdriver.chrome.driver", "C:\\vishal\\Automation\\Chrome Driver\\chromedriver-win64\\chromedriver.exe");
+System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/133.0.6943.53 chromedriver-linux64");
         d = new ChromeDriver();
         d.manage().window().maximize();
         d.navigate().to("https://todomvc.com/examples/react/dist/");

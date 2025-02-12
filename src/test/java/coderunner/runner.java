@@ -11,7 +11,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		dryRun = false,                        // for run or not run
 		snippets = SnippetType.CAMELCASE, // for remove the underscore
 		monochrome = true,
-	//	glue = "steps"
+		glue = "steps"
 		)
 
 public class runner extends AbstractTestNGCucumberTests {

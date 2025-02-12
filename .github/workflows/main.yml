@@ -1,0 +1,28 @@
+name: Scheduled Cucumber Tests
+
+on:
+  schedule:
+    - cron: "0 14 * * *"  # Runs every day at 10 PM UTC (Convert to your timezone if needed)
+  workflow_dispatch:  # Allows manual trigger as well
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Change to your Java version
+
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 'latest'
+
+      - name: Run Tests
+        run: mvn test

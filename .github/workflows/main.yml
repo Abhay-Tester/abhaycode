@@ -21,7 +21,6 @@ jobs:
 
       - name: Use ChromeDriver from Repository
         run: |
-          unzip 133.0.6943.53\ chromedriver-linux64.zip  # Extract Chromedriver
           chmod +x chromedriver-linux64/chromedriver  # Make executable
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
           chromedriver --version  # Verify installation

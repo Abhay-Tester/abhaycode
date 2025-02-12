@@ -11,22 +11,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
 public class loginsteps1 {
 
-       WebDriver driver = new ChromeDriver();         
+public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
 
-    // Method to generate random names
-   
-
-    @Given("User navigation to the todo management website")
-    public void userNavigationToTheTodoManagementWebsite() {
-    
-System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/133.0.6943.53 chromedriver-linux64");
-          driver.navigate().to("https://test.fundsheet.app/login");
+    System.setProperty("webdriver.chrome.driver", "C:\\vishal\\Automation\\Chrome Driver\\chromedriver-win64\\chromedriver.exe");
+    WebDriver driver = new ChromeDriver();         
+    driver.navigate().to("https://test.fundsheet.app/login");
     driver.manage().window().maximize();
     driver.findElement(By.xpath("//body/div[@id='main']/div[@id='register-r']/div[1]/form[1]/div[1]/input[1]")).sendKeys("akash@mailinator.com");
     driver.findElement(By.xpath("//input[@id='password']")).sendKeys("12345678");
@@ -58,7 +62,15 @@ System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "
   js.executeScript("window.scrollBy(0, 600)");
 
        driver.findElement(By.xpath("//button[contains(text(),'Submit')]")).click();
+ 		
+}
+}
+    // Method to generate random names
+   
 
+    @Given("User navigation to the todo management website")
+    public void userNavigationToTheTodoManagementWebsite() {
+ 
     
     
     }

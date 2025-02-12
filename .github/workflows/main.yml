@@ -2,7 +2,7 @@ name: Scheduled Cucumber Tests
 
 on:
   schedule:
-    - cron: "35 14 * * *"  # Runs at 10 PM UTC
+    - cron: "42 14 * * *"  # Runs at 10 PM UTC
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
@@ -13,21 +13,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Chrome
+      - name: Install Google Chrome
         run: |
           sudo apt update
           sudo apt install -y google-chrome-stable
-          google-chrome --version  # Check Chrome version
+          google-chrome --version  # Verify installation
 
       - name: Install ChromeDriver
         run: |
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
+          echo "Detected Chrome version: $CHROME_VERSION"
+
+          if [ -z "$CHROME_VERSION" ]; then
+            echo "Error: Unable to fetch Chrome version!"
+            exit 1
+          fi
+
           CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+
+          if [ -z "$CHROMEDRIVER_VERSION" ]; then
+            echo "Error: ChromeDriver version not found for Chrome $CHROME_VERSION"
+            exit 1
+          fi
+
           wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
+
+          if [ ! -f "chromedriver_linux64.zip" ]; then
+            echo "Error: Failed to download ChromeDriver"
+            exit 1
+          fi
+
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
           chmod +x /usr/local/bin/chromedriver
-          chromedriver --version  # Check ChromeDriver version
+          chromedriver --version  # Verify ChromeDriver installation
 
       - name: Set up Java
         uses: actions/setup-java@v3

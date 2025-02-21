@@ -26,7 +26,7 @@ jobs:
         restore-keys: maven-${{ runner.os }}-
 
     - name: Build and SonarQube Scan
-      run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=abhaycode -Dsonar.organization=abhay-tester
+      run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Abhay-Tester_abhaycode -Dsonar.organization=abhay-tester
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

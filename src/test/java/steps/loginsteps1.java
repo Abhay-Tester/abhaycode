@@ -1,36 +1,36 @@
-// package steps;
+package steps;
 
-// import java.util.List;
-// import java.util.Random;
+import java.util.List;
+import java.util.Random;
 
-// import org.openqa.selenium.By;
-// import org.openqa.selenium.Keys;
-// import org.openqa.selenium.WebDriver;
-// import org.openqa.selenium.WebElement;
-// import org.openqa.selenium.chrome.ChromeDriver;
-// import org.openqa.selenium.interactions.Actions;
-// import org.openqa.selenium.support.ui.ExpectedConditions;
-// import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-// import cucumber.api.java.en.Given;
-// import cucumber.api.java.en.When;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 
-// public class loginsteps1 {
+public class loginsteps1 {
 
-//     WebDriver d;
-//     WebDriverWait wait;  // Keep WebDriverWait instance global
+    WebDriver d;
+    WebDriverWait wait;  // Keep WebDriverWait instance global
 
-//     // Method to generate random names 	
-//     public String generateRandomName() {
-//         String characters = "ABCDE";
-//         StringBuilder name = new StringBuilder();
-//         Random random = new Random();
-//         int length = random.nextInt(3) + 3; // Length between 3 to 5
-//         for (int i = 0; i < length; i++) {
-//             name.append(characters.charAt(random.nextInt(characters.length())));
-//         }
-//         return name.toString();
-//     }
+    // Method to generate random names 	
+    public String generateRandomName() {
+        String characters = "ABCDE";
+        StringBuilder name = new StringBuilder();
+        Random random = new Random();
+        int length = random.nextInt(3) + 3; // Length between 3 to 5
+        for (int i = 0; i < length; i++) {
+            name.append(characters.charAt(random.nextInt(characters.length())));
+        }
+        return name.toString();
+    }
 
     @Given("User navigation to the todo management website")
     public void userNavigationToTheTodoManagementWebsite() {
